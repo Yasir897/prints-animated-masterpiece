@@ -10,6 +10,7 @@ import { Button } from "@/components/ui/button";
 import { Header } from "@/components/site/Header";
 import { Footer } from "@/components/site/Footer";
 import { WhatsAppButton } from "@/components/site/WhatsAppButton";
+import { Particles } from "@/components/site/Particles";
 import { useReveal } from "@/hooks/use-reveal";
 import heroImg from "@/assets/hero-books.jpg";
 
@@ -89,12 +90,15 @@ function Hero() {
     <section className="relative min-h-screen flex items-center pt-32 pb-16 overflow-hidden bg-ink isolate">
       <div ref={ref} className="absolute inset-0 z-0">
         <img src={heroImg} alt="Library with stacked books" className="h-full w-full object-cover scale-110" width={1920} height={1280} />
-        <div className="absolute inset-0 bg-gradient-to-b from-ink/80 via-ink/70 to-ink/90" />
-        <div className="absolute inset-0 bg-gradient-radial opacity-60" />
+        <div className="absolute inset-0 bg-gradient-to-b from-ink/85 via-ink/75 to-ink/95" />
+        <div className="absolute inset-0 bg-gradient-radial opacity-70" />
+        <div className="absolute inset-0 bg-grid opacity-30" />
       </div>
+      <Particles count={30} />
+      <div className="absolute inset-0 spotlight pointer-events-none z-0" />
 
       <div className="absolute top-1/4 left-10 h-32 w-32 rounded-full bg-gradient-brand opacity-30 blur-3xl animate-float z-0" />
-      <div className="absolute bottom-1/4 right-10 h-40 w-40 rounded-full bg-primary/40 blur-3xl animate-float z-0" style={{ animationDelay: "2s" }} />
+      <div className="absolute bottom-1/4 right-10 h-40 w-40 rounded-full bg-fuchsia-500/40 blur-3xl animate-float z-0" style={{ animationDelay: "2s" }} />
 
       <div className="relative z-10 mx-auto max-w-7xl px-6 text-white drop-shadow-lg">
         <span className="inline-flex items-center gap-2 rounded-full glass-dark px-4 py-1.5 text-xs font-medium animate-fade-up">
@@ -154,10 +158,10 @@ function ServicesGrid() {
           {services.map(({ icon: Icon, title, desc }, i) => (
             <div
               key={title}
-              className="reveal group relative overflow-hidden rounded-2xl border bg-card p-7 hover-lift"
+              className="reveal neon-border group relative overflow-hidden rounded-2xl glass p-7 hover-lift"
               style={{ transitionDelay: `${i * 60}ms` }}
             >
-              <div className="absolute -right-10 -top-10 h-32 w-32 rounded-full bg-gradient-brand opacity-0 group-hover:opacity-20 transition-opacity duration-500 blur-2xl" />
+              <div className="absolute -right-10 -top-10 h-32 w-32 rounded-full bg-gradient-brand opacity-0 group-hover:opacity-30 transition-opacity duration-500 blur-2xl" />
               <div className="grid h-12 w-12 place-items-center rounded-xl bg-gradient-brand text-brand-foreground shadow-glow group-hover:scale-110 transition-transform">
                 <Icon className="h-6 w-6" />
               </div>
@@ -215,7 +219,7 @@ function WhyChoose() {
         </div>
         <div className="mt-14 grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
           {stats.map(({ value, label, icon: Icon }, i) => (
-            <div key={label} className="reveal group rounded-2xl border bg-card p-7 hover-lift relative overflow-hidden" style={{ transitionDelay: `${i * 80}ms` }}>
+            <div key={label} className="reveal neon-border group rounded-2xl glass p-7 hover-lift relative overflow-hidden" style={{ transitionDelay: `${i * 80}ms` }}>
               <div className="absolute right-4 top-4 grid h-10 w-10 place-items-center rounded-lg bg-accent text-primary group-hover:bg-gradient-brand group-hover:text-brand-foreground transition-all">
                 <Icon className="h-5 w-5" />
               </div>
@@ -242,7 +246,7 @@ function Testimonials() {
       <div className="mt-14 relative">
         <div className="flex gap-6 animate-marquee" style={{ width: "max-content" }}>
           {items.map((t, i) => (
-            <div key={i} className="w-[360px] shrink-0 rounded-2xl border bg-card p-7 shadow-elevated">
+            <div key={i} className="w-[360px] shrink-0 rounded-2xl glass neon-border p-7 shadow-elevated">
               <Quote className="h-7 w-7 text-primary/30" />
               <p className="mt-3 text-foreground/90">{t.text}</p>
               <div className="mt-5 flex items-center gap-3">
@@ -270,8 +274,9 @@ function CTASection() {
     <section className="py-24">
       <div className="mx-auto max-w-7xl px-6">
         <div className="reveal relative overflow-hidden rounded-3xl bg-gradient-hero p-10 sm:p-16 text-white shadow-elevated">
+          <Particles count={24} />
           <div className="absolute inset-0 bg-gradient-radial opacity-60" />
-          <div className="absolute -top-20 -right-20 h-64 w-64 rounded-full bg-primary/40 blur-3xl animate-float" />
+          <div className="absolute -top-20 -right-20 h-64 w-64 rounded-full bg-fuchsia-500/40 blur-3xl animate-float" />
           <div className="relative max-w-2xl">
             <h2 className="text-4xl sm:text-5xl font-bold leading-tight">
               Ready to print? <br />

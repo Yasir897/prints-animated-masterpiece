@@ -9,6 +9,9 @@ import {
 } from "@tanstack/react-router";
 
 import appCss from "../styles.css?url";
+import { PageLoader } from "@/components/site/PageLoader";
+import { ScrollProgress } from "@/components/site/ScrollProgress";
+import { CursorFx } from "@/components/site/CursorFx";
 
 function NotFoundComponent() {
   return (
@@ -96,7 +99,7 @@ export const Route = createRootRouteWithContext<{ queryClient: QueryClient }>()(
 
 function RootShell({ children }: { children: React.ReactNode }) {
   return (
-    <html lang="en">
+    <html lang="en" className="dark">
       <head>
         <HeadContent />
       </head>
@@ -113,6 +116,9 @@ function RootComponent() {
 
   return (
     <QueryClientProvider client={queryClient}>
+      <PageLoader />
+      <ScrollProgress />
+      <CursorFx />
       <Outlet />
     </QueryClientProvider>
   );
