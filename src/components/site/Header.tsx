@@ -17,8 +17,9 @@ export function Header() {
 
   const links = [
     { to: "/", label: "Home" },
+    { to: "/about", label: "About Us" },
     { to: "/services", label: "Services" },
-    { to: "/contact", label: "About / Contact" },
+    { to: "/contact", label: "Contact Us" },
   ];
 
   return (
@@ -31,15 +32,16 @@ export function Header() {
       <div className="mx-auto max-w-7xl px-4 sm:px-6">
         <div
           className={cn(
-            "flex items-center justify-between rounded-2xl px-4 sm:px-6 py-3 transition-all duration-500",
+            "flex items-center justify-between rounded-2xl px-4 sm:px-6 py-3 transition-all duration-500 relative",
             scrolled ? "glass shadow-elevated" : "glass-dark",
           )}
+          style={scrolled ? { borderBottom: "1px solid color-mix(in oklab, var(--neon) 35%, transparent)", boxShadow: "0 10px 40px -10px var(--brand-glow), 0 0 24px -8px var(--neon)" } : undefined}
         >
           <Link to="/" className="group flex items-center gap-2.5">
             <span className="grid h-9 w-9 place-items-center rounded-xl bg-gradient-brand text-brand-foreground shadow-glow transition-transform group-hover:rotate-6">
               <Printer className="h-5 w-5" />
             </span>
-            <span className={cn("text-lg font-bold tracking-tight", scrolled ? "text-foreground" : "text-white")}>
+            <span className="text-lg font-bold tracking-tight text-white">
               Easy<span className="text-gradient">Prints</span>
             </span>
           </Link>
@@ -50,10 +52,8 @@ export function Header() {
                 key={l.to}
                 to={l.to}
                 activeOptions={{ exact: l.to === "/" }}
-                className={cn(
-                  "relative px-4 py-2 text-sm font-medium transition-colors",
-                  scrolled ? "text-foreground/80 hover:text-foreground" : "text-white/85 hover:text-white",
-                )}
+                activeProps={{ className: "text-white" }}
+                className="nav-link px-4 py-2 text-sm font-medium text-white/80 hover:text-white"
               >
                 {l.label}
               </Link>
