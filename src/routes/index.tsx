@@ -219,7 +219,7 @@ function WhyChoose() {
         </div>
         <div className="mt-14 grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
           {stats.map(({ value, label, icon: Icon }, i) => (
-            <div key={label} className="reveal group rounded-2xl border bg-card p-7 hover-lift relative overflow-hidden" style={{ transitionDelay: `${i * 80}ms` }}>
+            <div key={label} className="reveal neon-border group rounded-2xl glass p-7 hover-lift relative overflow-hidden" style={{ transitionDelay: `${i * 80}ms` }}>
               <div className="absolute right-4 top-4 grid h-10 w-10 place-items-center rounded-lg bg-accent text-primary group-hover:bg-gradient-brand group-hover:text-brand-foreground transition-all">
                 <Icon className="h-5 w-5" />
               </div>
