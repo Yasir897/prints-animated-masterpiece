@@ -246,7 +246,7 @@ function Testimonials() {
       <div className="mt-14 relative">
         <div className="flex gap-6 animate-marquee" style={{ width: "max-content" }}>
           {items.map((t, i) => (
-            <div key={i} className="w-[360px] shrink-0 rounded-2xl border bg-card p-7 shadow-elevated">
+            <div key={i} className="w-[360px] shrink-0 rounded-2xl glass neon-border p-7 shadow-elevated">
               <Quote className="h-7 w-7 text-primary/30" />
               <p className="mt-3 text-foreground/90">{t.text}</p>
               <div className="mt-5 flex items-center gap-3">
@@ -274,8 +274,9 @@ function CTASection() {
     <section className="py-24">
       <div className="mx-auto max-w-7xl px-6">
         <div className="reveal relative overflow-hidden rounded-3xl bg-gradient-hero p-10 sm:p-16 text-white shadow-elevated">
+          <Particles count={24} />
           <div className="absolute inset-0 bg-gradient-radial opacity-60" />
-          <div className="absolute -top-20 -right-20 h-64 w-64 rounded-full bg-primary/40 blur-3xl animate-float" />
+          <div className="absolute -top-20 -right-20 h-64 w-64 rounded-full bg-fuchsia-500/40 blur-3xl animate-float" />
           <div className="relative max-w-2xl">
             <h2 className="text-4xl sm:text-5xl font-bold leading-tight">
               Ready to print? <br />
