@@ -10,6 +10,7 @@ import { Button } from "@/components/ui/button";
 import { Header } from "@/components/site/Header";
 import { Footer } from "@/components/site/Footer";
 import { WhatsAppButton } from "@/components/site/WhatsAppButton";
+import { Particles } from "@/components/site/Particles";
 import { useReveal } from "@/hooks/use-reveal";
 import heroImg from "@/assets/hero-books.jpg";
 
