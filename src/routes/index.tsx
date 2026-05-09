@@ -89,12 +89,15 @@ function Hero() {
     <section className="relative min-h-screen flex items-center pt-32 pb-16 overflow-hidden bg-ink isolate">
       <div ref={ref} className="absolute inset-0 z-0">
         <img src={heroImg} alt="Library with stacked books" className="h-full w-full object-cover scale-110" width={1920} height={1280} />
-        <div className="absolute inset-0 bg-gradient-to-b from-ink/80 via-ink/70 to-ink/90" />
-        <div className="absolute inset-0 bg-gradient-radial opacity-60" />
+        <div className="absolute inset-0 bg-gradient-to-b from-ink/85 via-ink/75 to-ink/95" />
+        <div className="absolute inset-0 bg-gradient-radial opacity-70" />
+        <div className="absolute inset-0 bg-grid opacity-30" />
       </div>
+      <Particles count={30} />
+      <div className="absolute inset-0 spotlight pointer-events-none z-0" />
 
       <div className="absolute top-1/4 left-10 h-32 w-32 rounded-full bg-gradient-brand opacity-30 blur-3xl animate-float z-0" />
-      <div className="absolute bottom-1/4 right-10 h-40 w-40 rounded-full bg-primary/40 blur-3xl animate-float z-0" style={{ animationDelay: "2s" }} />
+      <div className="absolute bottom-1/4 right-10 h-40 w-40 rounded-full bg-fuchsia-500/40 blur-3xl animate-float z-0" style={{ animationDelay: "2s" }} />
 
       <div className="relative z-10 mx-auto max-w-7xl px-6 text-white drop-shadow-lg">
         <span className="inline-flex items-center gap-2 rounded-full glass-dark px-4 py-1.5 text-xs font-medium animate-fade-up">
