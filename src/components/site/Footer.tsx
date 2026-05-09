@@ -34,9 +34,9 @@ export function Footer() {
           <div>
             <h4 className="text-sm font-semibold mb-4">Contact</h4>
             <ul className="space-y-3 text-sm text-white/70">
-              <li className="flex items-center gap-2"><Phone className="h-4 w-4" /> +91 98765 43210</li>
-              <li className="flex items-center gap-2"><Mail className="h-4 w-4" /> hello@easyprints.com</li>
-              <li className="flex items-center gap-2"><MapPin className="h-4 w-4" /> Knowledge Park, India</li>
+              <li className="flex items-center gap-2"><Phone className="h-4 w-4" /> +92 300 1234567</li>
+              <li className="flex items-center gap-2"><Mail className="h-4 w-4" /> hello@easyprints.pk</li>
+              <li className="flex items-center gap-2"><MapPin className="h-4 w-4" /> Lahore, Pakistan</li>
             </ul>
           </div>
 

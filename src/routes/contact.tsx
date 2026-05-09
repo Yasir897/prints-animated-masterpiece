@@ -107,7 +107,7 @@ function ContactPage() {
                 </div>
                 <div className="grid gap-2">
                   <Label htmlFor="phone">Phone *</Label>
-                  <Input id="phone" name="phone" type="tel" placeholder="+91 98765 43210" maxLength={20} required />
+                  <Input id="phone" name="phone" type="tel" placeholder="+92 300 1234567" maxLength={20} required />
                 </div>
                 <div className="grid gap-2">
                   <Label htmlFor="service">Service *</Label>
@@ -152,7 +152,7 @@ function ContactPage() {
             <div className="mt-10 reveal rounded-3xl overflow-hidden border shadow-elevated">
               <iframe
                 title="EasyPrints location"
-                src="https://www.google.com/maps?q=Knowledge%20Park%20India&output=embed"
+                src="https://www.google.com/maps?q=Lahore%2C%20Pakistan&output=embed"
                 className="w-full h-[360px] border-0"
                 loading="lazy"
               />
@@ -165,9 +165,9 @@ function ContactPage() {
               <div className="relative">
                 <h3 className="text-xl font-bold">Get in touch</h3>
                 <ul className="mt-6 space-y-4 text-sm">
-                  <li className="flex items-start gap-3"><Phone className="h-5 w-5 mt-0.5" /><div><div className="text-white/60 text-xs">Phone</div>+91 98765 43210</div></li>
-                  <li className="flex items-start gap-3"><Mail className="h-5 w-5 mt-0.5" /><div><div className="text-white/60 text-xs">Email</div>hello@easyprints.com</div></li>
-                  <li className="flex items-start gap-3"><MapPin className="h-5 w-5 mt-0.5" /><div><div className="text-white/60 text-xs">Address</div>Knowledge Park, India</div></li>
+                  <li className="flex items-start gap-3"><Phone className="h-5 w-5 mt-0.5" /><div><div className="text-white/60 text-xs">Phone</div>+92 300 1234567</div></li>
+                  <li className="flex items-start gap-3"><Mail className="h-5 w-5 mt-0.5" /><div><div className="text-white/60 text-xs">Email</div>hello@easyprints.pk</div></li>
+                  <li className="flex items-start gap-3"><MapPin className="h-5 w-5 mt-0.5" /><div><div className="text-white/60 text-xs">Address</div>Lahore, Pakistan</div></li>
                 </ul>
               </div>
             </div>
