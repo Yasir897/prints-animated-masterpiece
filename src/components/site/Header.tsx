@@ -67,7 +67,7 @@ export function Header() {
 
           <button
             onClick={() => setOpen((v) => !v)}
-            className={cn("md:hidden grid h-10 w-10 place-items-center rounded-lg glass", scrolled ? "text-foreground" : "text-white")}
+            className="md:hidden grid h-10 w-10 place-items-center rounded-lg glass text-white"
             aria-label="Toggle menu"
           >
             {open ? <X className="h-5 w-5" /> : <Menu className="h-5 w-5" />}
