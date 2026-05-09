@@ -9,6 +9,9 @@ import {
 } from "@tanstack/react-router";
 
 import appCss from "../styles.css?url";
+import { PageLoader } from "@/components/site/PageLoader";
+import { ScrollProgress } from "@/components/site/ScrollProgress";
+import { CursorFx } from "@/components/site/CursorFx";
 
 function NotFoundComponent() {
   return (
