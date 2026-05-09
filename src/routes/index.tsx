@@ -4,13 +4,16 @@ import { useEffect, useRef } from "react";
 import {
   FileText, BookOpen, GraduationCap, Newspaper, ClipboardList,
   FileSpreadsheet, Megaphone, Briefcase, Boxes, Upload, Printer, Truck,
-  Zap, ShieldCheck, BadgeIndianRupee, Users, Building2, ArrowRight, Star, Quote,
+  ArrowRight, Clock, Globe2, Plane, MapPin,
 } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Header } from "@/components/site/Header";
 import { Footer } from "@/components/site/Footer";
 import { WhatsAppButton } from "@/components/site/WhatsAppButton";
 import { Particles } from "@/components/site/Particles";
+import { OrderNowButton } from "@/components/site/OrderNowButton";
+import { WriteReview } from "@/components/site/WriteReview";
+import { Toaster } from "@/components/ui/sonner";
 import { useReveal } from "@/hooks/use-reveal";
 import heroImg from "@/assets/hero-books.jpg";
 
@@ -18,7 +21,7 @@ export const Route = createFileRoute("/")({
   head: () => ({
     meta: [
       { title: "EasyPrints — Printing for Students & Businesses" },
-      { name: "description", content: "Premium printing services: books, PDFs, thesis, journals, assignments, flyers and bulk business printing. Fast delivery, student-friendly prices." },
+      { name: "description", content: "Premium printing services: books, PDFs, thesis, journals, assignments, flyers and bulk business printing. Fast 24–48 hour delivery across Pakistan and worldwide." },
     ],
   }),
   component: HomePage,
@@ -33,7 +36,7 @@ const services = [
   { icon: FileSpreadsheet, title: "Forms Printing", desc: "Carbon copies, NCR forms and stationery." },
   { icon: Megaphone, title: "Flyers & Brochures", desc: "Eye-catching marketing print collateral." },
   { icon: Briefcase, title: "Business Printing", desc: "Cards, letterheads, reports, presentations." },
-  { icon: Boxes, title: "Bulk Printing", desc: "Wholesale rates for schools & enterprises." },
+  { icon: Boxes, title: "Bulk Printing", desc: "Wholesale orders for schools & enterprises." },
 ];
 
 const steps = [
@@ -42,32 +45,17 @@ const steps = [
   { icon: Truck, title: "Fast delivery", desc: "Doorstep delivery or campus pick-up in record time." },
 ];
 
-const stats = [
-  { value: "24h", label: "Fast delivery", icon: Zap },
-  { value: "99%", label: "Quality satisfaction", icon: ShieldCheck },
-  { value: "₹0.99", label: "Per page from", icon: BadgeIndianRupee },
-  { value: "50K+", label: "Happy students", icon: Users },
-  { value: "300+", label: "Bulk clients", icon: Boxes },
-  { value: "120+", label: "Schools & Unis", icon: Building2 },
-];
-
-const testimonials = [
-  { name: "Aarav Mehta", role: "PhD Scholar, IIT", text: "Got my 280-page thesis printed and bound overnight. The quality blew my supervisor away." },
-  { name: "Sara Khan", role: "MBA Student", text: "Affordable, fast, and the team genuinely cares. My go-to for every assignment." },
-  { name: "Rohit Verma", role: "Marketing Lead, Nova Co.", text: "We order brochures in bulk every quarter — colours pop, paper feels premium." },
-  { name: "Diya Patel", role: "BCom, Delhi University", text: "Uploaded a PDF at midnight, picked it up before class. Lifesaver!" },
-];
-
 function HomePage() {
   useReveal();
   return (
     <div className="min-h-screen bg-background overflow-x-hidden">
       <Header />
+      <Toaster />
       <Hero />
       <ServicesGrid />
       <HowItWorks />
-      <WhyChoose />
-      <Testimonials />
+      <DeliverySection />
+      <WriteReview />
       <CTASection />
       <Footer />
       <WhatsAppButton />
@@ -103,41 +91,25 @@ function Hero() {
       <div className="relative z-10 mx-auto max-w-7xl px-6 text-white drop-shadow-lg">
         <span className="inline-flex items-center gap-2 rounded-full glass-dark px-4 py-1.5 text-xs font-medium animate-fade-up">
           <span className="h-2 w-2 rounded-full bg-emerald-400 animate-pulse" />
-          Trusted by 120+ schools & universities
+          Premium printing for students & businesses
         </span>
         <h1 className="mt-6 max-w-4xl text-4xl sm:text-6xl lg:text-7xl font-bold leading-[1.05] animate-fade-up" style={{ animationDelay: "0.1s" }}>
           Professional Printing<br />
           <span className="text-gradient">for Students & Businesses</span>
         </h1>
         <p className="mt-6 max-w-2xl text-lg text-white/80 animate-fade-up" style={{ animationDelay: "0.2s" }}>
-          EasyPrints delivers fast, affordable, premium-quality printing — books, PDFs,
+          EasyPrints delivers fast, high-quality printing — books, PDFs,
           assignments, journals, thesis, forms and bulk business orders. From first page to final delivery.
         </p>
         <div className="mt-8 flex flex-wrap gap-4 animate-fade-up" style={{ animationDelay: "0.3s" }}>
-          <Link to="/contact">
-            <Button size="lg" className="bg-gradient-brand text-brand-foreground hover:opacity-90 shadow-glow h-12 px-8 text-base">
-              Order Now <ArrowRight className="ml-1 h-4 w-4" />
-            </Button>
-          </Link>
+          <OrderNowButton className="inline-flex items-center justify-center gap-2 rounded-md bg-gradient-brand text-brand-foreground hover:opacity-90 shadow-glow h-12 px-8 text-base font-medium transition">
+            Order Now <ArrowRight className="h-4 w-4" />
+          </OrderNowButton>
           <Link to="/services">
             <Button size="lg" variant="outline" className="h-12 px-8 text-base bg-white/5 border-white/30 text-white hover:bg-white/10 hover:text-white">
               Explore Services
             </Button>
           </Link>
-        </div>
-
-        <div className="mt-16 grid grid-cols-2 sm:grid-cols-4 gap-4 max-w-3xl animate-fade-up" style={{ animationDelay: "0.4s" }}>
-          {[
-            { v: "50K+", l: "Orders" },
-            { v: "24h", l: "Delivery" },
-            { v: "4.9★", l: "Rating" },
-            { v: "100%", l: "Quality" },
-          ].map((s) => (
-            <div key={s.l} className="glass-dark rounded-xl p-4">
-              <div className="text-2xl font-bold text-gradient">{s.v}</div>
-              <div className="text-xs text-white/70 mt-1">{s.l}</div>
-            </div>
-          ))}
         </div>
       </div>
     </section>
@@ -209,58 +181,60 @@ function HowItWorks() {
   );
 }
 
-function WhyChoose() {
-  return (
-    <section className="py-24">
-      <div className="mx-auto max-w-7xl px-6">
-        <div className="max-w-2xl reveal">
-          <span className="text-sm font-semibold text-primary uppercase tracking-wider">Why EasyPrints</span>
-          <h2 className="mt-2 text-4xl sm:text-5xl font-bold">Numbers that build trust</h2>
-        </div>
-        <div className="mt-14 grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
-          {stats.map(({ value, label, icon: Icon }, i) => (
-            <div key={label} className="reveal neon-border group rounded-2xl glass p-7 hover-lift relative overflow-hidden" style={{ transitionDelay: `${i * 80}ms` }}>
-              <div className="absolute right-4 top-4 grid h-10 w-10 place-items-center rounded-lg bg-accent text-primary group-hover:bg-gradient-brand group-hover:text-brand-foreground transition-all">
-                <Icon className="h-5 w-5" />
-              </div>
-              <div className="text-5xl font-bold text-gradient">{value}</div>
-              <div className="mt-2 text-muted-foreground">{label}</div>
-            </div>
-          ))}
-        </div>
-      </div>
-    </section>
-  );
-}
+function DeliverySection() {
+  const features = [
+    {
+      icon: Clock,
+      title: "Delivery within 24–48 Hours",
+      desc: "Lightning-fast turnaround on every order — most prints ready and dispatched the same or next day.",
+    },
+    {
+      icon: MapPin,
+      title: "Available All Over Pakistan",
+      desc: "Doorstep delivery to every city — Karachi, Lahore, Islamabad, Peshawar, Quetta and beyond.",
+    },
+    {
+      icon: Plane,
+      title: "International Delivery Available",
+      desc: "Shipping worldwide for thesis, books and bulk orders — wherever you study or do business.",
+    },
+    {
+      icon: Truck,
+      title: "Real-Time Order Tracking",
+      desc: "Stay updated from print floor to doorstep with status updates at every step.",
+    },
+  ];
 
-function Testimonials() {
-  const items = [...testimonials, ...testimonials];
   return (
-    <section className="py-24 bg-secondary/40 overflow-hidden">
-      <div className="mx-auto max-w-7xl px-6">
+    <section className="py-24 relative overflow-hidden">
+      <div className="absolute inset-0 bg-gradient-radial opacity-25 pointer-events-none" />
+      <div className="absolute -top-20 left-1/2 -translate-x-1/2 h-72 w-[36rem] rounded-full bg-gradient-brand opacity-20 blur-3xl" />
+      <div className="relative mx-auto max-w-7xl px-6">
         <div className="text-center max-w-2xl mx-auto reveal">
-          <span className="text-sm font-semibold text-primary uppercase tracking-wider">Testimonials</span>
-          <h2 className="mt-2 text-4xl sm:text-5xl font-bold">Loved by students & businesses</h2>
+          <span className="inline-flex items-center gap-2 rounded-full glass px-4 py-1.5 text-xs font-medium uppercase tracking-wider text-primary">
+            <Globe2 className="h-3.5 w-3.5" /> Delivery & Reach
+          </span>
+          <h2 className="mt-3 text-4xl sm:text-5xl font-bold">
+            Fast, reliable, <span className="text-gradient">worldwide.</span>
+          </h2>
+          <p className="mt-4 text-muted-foreground">
+            From your campus dorm to global business hubs — EasyPrints reaches you wherever you are.
+          </p>
         </div>
-      </div>
-      <div className="mt-14 relative">
-        <div className="flex gap-6 animate-marquee" style={{ width: "max-content" }}>
-          {items.map((t, i) => (
-            <div key={i} className="w-[360px] shrink-0 rounded-2xl glass neon-border p-7 shadow-elevated">
-              <Quote className="h-7 w-7 text-primary/30" />
-              <p className="mt-3 text-foreground/90">{t.text}</p>
-              <div className="mt-5 flex items-center gap-3">
-                <div className="grid h-11 w-11 place-items-center rounded-full bg-gradient-brand text-brand-foreground font-semibold">
-                  {t.name[0]}
-                </div>
-                <div>
-                  <div className="font-semibold text-sm">{t.name}</div>
-                  <div className="text-xs text-muted-foreground">{t.role}</div>
-                </div>
-                <div className="ml-auto flex text-amber-500">
-                  {Array.from({ length: 5 }).map((_, k) => <Star key={k} className="h-3.5 w-3.5 fill-current" />)}
-                </div>
+
+        <div className="mt-14 grid gap-6 sm:grid-cols-2 lg:grid-cols-4">
+          {features.map(({ icon: Icon, title, desc }, i) => (
+            <div
+              key={title}
+              className="reveal neon-border group rounded-2xl glass p-7 hover-lift relative overflow-hidden"
+              style={{ transitionDelay: `${i * 90}ms` }}
+            >
+              <div className="absolute -right-8 -top-8 h-28 w-28 rounded-full bg-gradient-brand opacity-0 group-hover:opacity-40 blur-2xl transition-opacity duration-500" />
+              <div className="grid h-14 w-14 place-items-center rounded-2xl bg-gradient-brand text-brand-foreground shadow-glow group-hover:scale-110 group-hover:rotate-6 transition-all">
+                <Icon className="h-7 w-7" />
               </div>
+              <h3 className="mt-5 text-lg font-semibold">{title}</h3>
+              <p className="mt-2 text-sm text-muted-foreground leading-relaxed">{desc}</p>
             </div>
           ))}
         </div>
@@ -287,16 +261,9 @@ function CTASection() {
               beautifully bound, delivered fast.
             </p>
             <div className="mt-8 flex flex-wrap gap-4">
-              <Link to="/contact">
-                <Button size="lg" className="h-12 px-8 bg-white text-ink hover:bg-white/90 shadow-glow">
-                  Place an Order <ArrowRight className="ml-1 h-4 w-4" />
-                </Button>
-              </Link>
-              <a href="https://wa.me/919876543210" target="_blank" rel="noreferrer">
-                <Button size="lg" variant="outline" className="h-12 px-8 bg-white/5 border-white/30 text-white hover:bg-white/10 hover:text-white">
-                  Chat on WhatsApp
-                </Button>
-              </a>
+              <OrderNowButton className="inline-flex items-center justify-center gap-2 rounded-md h-12 px-8 bg-white text-ink hover:bg-white/90 shadow-glow font-medium transition">
+                Place an Order <ArrowRight className="h-4 w-4" />
+              </OrderNowButton>
             </div>
           </div>
         </div>
