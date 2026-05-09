@@ -158,10 +158,10 @@ function ServicesGrid() {
           {services.map(({ icon: Icon, title, desc }, i) => (
             <div
               key={title}
-              className="reveal group relative overflow-hidden rounded-2xl border bg-card p-7 hover-lift"
+              className="reveal neon-border group relative overflow-hidden rounded-2xl glass p-7 hover-lift"
               style={{ transitionDelay: `${i * 60}ms` }}
             >
-              <div className="absolute -right-10 -top-10 h-32 w-32 rounded-full bg-gradient-brand opacity-0 group-hover:opacity-20 transition-opacity duration-500 blur-2xl" />
+              <div className="absolute -right-10 -top-10 h-32 w-32 rounded-full bg-gradient-brand opacity-0 group-hover:opacity-30 transition-opacity duration-500 blur-2xl" />
               <div className="grid h-12 w-12 place-items-center rounded-xl bg-gradient-brand text-brand-foreground shadow-glow group-hover:scale-110 transition-transform">
                 <Icon className="h-6 w-6" />
               </div>
