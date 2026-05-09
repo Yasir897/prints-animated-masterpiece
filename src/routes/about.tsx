@@ -30,7 +30,7 @@ const milestones = [
   { year: "2019", title: "Started in a campus corner", desc: "Two engineers, one printer, midnight assignment runs." },
   { year: "2021", title: "First university partnership", desc: "Official thesis & journal printing partner across 12 universities." },
   { year: "2023", title: "50,000+ orders", desc: "Crossed half a lakh happy students and 200+ business clients." },
-  { year: "2025", title: "Going national", desc: "Pan-India delivery, 24-hour turnaround, and a futuristic upload portal." },
+  { year: "2025", title: "Going global", desc: "Nationwide delivery across Pakistan, international shipping, and a futuristic upload portal." },
 ];
 
 function AboutPage() {
@@ -60,7 +60,7 @@ function AboutPage() {
           </h1>
           <p className="mt-6 max-w-2xl text-lg text-white/80 animate-fade-up" style={{ animationDelay: "0.2s" }}>
             EasyPrints started as a tiny campus print shop. Today we power assignments, theses, journals,
-            books and brochures for thousands of students and businesses across India.
+            books and brochures for thousands of students and businesses across Pakistan and beyond.
           </p>
         </div>
       </section>
