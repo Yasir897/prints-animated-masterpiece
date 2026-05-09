@@ -41,10 +41,10 @@ const orderSchema = z.object({
 });
 
 const faqs = [
-  { q: "How fast can you deliver?", a: "Most orders are ready within 24 hours. Same-day delivery available for assignments and small orders within city limits." },
+  { q: "How fast can you deliver?", a: "Most orders are ready within 24–48 hours. Same-day delivery is available for assignments and small orders within city limits." },
   { q: "What file formats do you accept?", a: "We accept PDF, DOCX, JPG, PNG and most standard formats. PDF is preferred for the most accurate output." },
-  { q: "Do you offer student discounts?", a: "Yes! We have student-friendly pricing starting at ₹0.99/page and special rates for bulk class orders." },
-  { q: "Can I order from another city?", a: "Absolutely. We ship across India for thesis, books and bulk orders. Delivery times vary by location." },
+  { q: "Do you deliver across Pakistan?", a: "Yes — we deliver to every major city in Pakistan and offer international shipping for thesis, books and bulk orders." },
+  { q: "Can I order from another country?", a: "Absolutely. International delivery is available for thesis, books and bulk orders. Timelines vary by destination." },
   { q: "Do you do colour printing?", a: "Yes — we offer both B/W and full-colour printing on a variety of paper stocks and finishes." },
 ];
 

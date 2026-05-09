@@ -27,56 +27,48 @@ const detailed = [
     img: bookImg,
     desc: "Premium hardbound and paperback book printing for authors, publishers, and self-publishers. Custom covers, smooth paper, perfect binding.",
     features: ["Hardcover & paperback", "Color or B/W interior", "Perfect binding", "Custom dust jackets"],
-    price: "from ₹120 / book",
   },
   {
     title: "University Journals",
     img: thesisImg,
     desc: "Research-grade journals printed with professional typesetting, archival-quality paper, and academic finishes ready for publication.",
     features: ["ISSN-ready layouts", "Color plates", "Glossy / matte finish", "Volume / issue numbering"],
-    price: "from ₹3 / page",
   },
   {
     title: "Thesis Printing",
     img: thesisImg,
     desc: "University-spec thesis printing with hard binding, gold foil titles, and the formatting your committee expects.",
     features: ["Hard binding", "Gold/silver foil titles", "Acid-free paper", "Multiple copies discount"],
-    price: "from ₹450 / copy",
   },
   {
     title: "Assignment Printing",
     img: bookImg,
     desc: "Same-day assignment printing with neat spiral binding or stapling. Drop a PDF — collect it before class.",
-    features: ["Spiral / staple binding", "Single or double-sided", "Same-day pickup", "Student pricing"],
-    price: "from ₹0.99 / page",
+    features: ["Spiral / staple binding", "Single or double-sided", "Same-day pickup", "Student-friendly service"],
   },
   {
     title: "Notes Printing",
     img: bookImg,
     desc: "Class notes, study guides, and exam prep printed in bulk for student groups and coaching centers.",
-    features: ["Bulk discounts", "Color highlights", "Index tabs", "Group orders"],
-    price: "from ₹0.80 / page",
+    features: ["Bulk friendly", "Color highlights", "Index tabs", "Group orders"],
   },
   {
     title: "Business Printing",
     img: bizImg,
     desc: "Professional letterheads, business cards, presentations, reports and corporate stationery that look as sharp as your brand.",
     features: ["Premium card stock", "Foil & spot UV", "Pantone matching", "Corporate accounts"],
-    price: "from ₹2 / sheet",
   },
   {
     title: "Forms & Flyers",
     img: bizImg,
     desc: "NCR forms, marketing flyers, brochures and event collateral printed at scale with vivid colour reproduction.",
     features: ["NCR / carbonless", "Tri-fold / bi-fold", "Event flyers", "Express turnaround"],
-    price: "from ₹1.50 / piece",
   },
   {
     title: "Bulk Printing Solutions",
     img: bookImg,
     desc: "Wholesale printing for schools, universities, coaching institutes and enterprises with dedicated account managers.",
-    features: ["Volume pricing", "Dedicated PM", "Scheduled deliveries", "Custom kitting"],
-    price: "Custom quote",
+    features: ["Volume orders", "Dedicated PM", "Scheduled deliveries", "Custom kitting"],
   },
 ];
 
@@ -128,10 +120,6 @@ function ServicesPage() {
                   ))}
                 </ul>
                 <div className="mt-7 flex flex-wrap items-center gap-4">
-                  <div className="rounded-xl glass px-4 py-2.5">
-                    <div className="text-xs text-muted-foreground">Pricing</div>
-                    <div className="font-semibold text-gradient">{s.price}</div>
-                  </div>
                   <Link to="/contact">
                     <Button className="bg-gradient-brand text-brand-foreground hover:opacity-90 shadow-glow h-11 px-6">
                       Order this <ArrowRight className="ml-1 h-4 w-4" />
