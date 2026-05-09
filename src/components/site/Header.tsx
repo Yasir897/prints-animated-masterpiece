@@ -3,10 +3,12 @@ import { useEffect, useState } from "react";
 import { Menu, X, Printer } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { cn } from "@/lib/utils";
+import { OrderModal } from "./OrderModal";
 
 export function Header() {
   const [scrolled, setScrolled] = useState(false);
   const [open, setOpen] = useState(false);
+  const [orderOpen, setOrderOpen] = useState(false);
 
   useEffect(() => {
     const onScroll = () => setScrolled(window.scrollY > 20);
@@ -58,11 +60,12 @@ export function Header() {
                 {l.label}
               </Link>
             ))}
-            <Link to="/contact" className="ml-2">
-              <Button className="bg-gradient-brand text-brand-foreground hover:opacity-90 shadow-glow">
-                Order Now
-              </Button>
-            </Link>
+            <Button
+              onClick={() => setOrderOpen(true)}
+              className="ml-2 bg-gradient-brand text-brand-foreground hover:opacity-90 shadow-glow"
+            >
+              Order Now
+            </Button>
           </nav>
 
           <button
@@ -87,15 +90,20 @@ export function Header() {
                   {l.label}
                 </Link>
               ))}
-              <Link to="/contact" onClick={() => setOpen(false)}>
-                <Button className="w-full mt-2 bg-gradient-brand text-brand-foreground">
-                  Order Now
-                </Button>
-              </Link>
+              <Button
+                onClick={() => {
+                  setOpen(false);
+                  setOrderOpen(true);
+                }}
+                className="w-full mt-2 bg-gradient-brand text-brand-foreground"
+              >
+                Order Now
+              </Button>
             </div>
           </div>
         )}
       </div>
+      <OrderModal open={orderOpen} onClose={() => setOrderOpen(false)} />
     </header>
   );
 }
