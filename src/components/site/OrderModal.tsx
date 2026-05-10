@@ -132,6 +132,7 @@ export function OrderModal({ open, onClose }: OrderModalProps) {
           ))}
         </div>
       </div>
-    </div>
+    </div>,
+    document.body,
   );
 }
