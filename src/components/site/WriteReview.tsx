@@ -24,6 +24,8 @@ export function WriteReview() {
   const [rating, setRating] = useState(0);
   const [hover, setHover] = useState(0);
   const [submitted, setSubmitted] = useState(false);
+  const [image, setImage] = useState<string | null>(null);
+  const fileRef = useRef<HTMLInputElement>(null);
 
   useEffect(() => {
     try {
@@ -31,6 +33,22 @@ export function WriteReview() {
       if (raw) setReviews(JSON.parse(raw));
     } catch {}
   }, []);
+
+  function onPickImage(e: React.ChangeEvent<HTMLInputElement>) {
+    const file = e.target.files?.[0];
+    if (!file) return;
+    if (!file.type.startsWith("image/")) {
+      toast.error("Please select an image file");
+      return;
+    }
+    if (file.size > 4 * 1024 * 1024) {
+      toast.error("Image too large (max 4MB)");
+      return;
+    }
+    const reader = new FileReader();
+    reader.onload = () => setImage(String(reader.result));
+    reader.readAsDataURL(file);
+  }
 
   function submit(e: React.FormEvent) {
     e.preventDefault();
@@ -44,6 +62,7 @@ export function WriteReview() {
       text: text.trim().slice(0, 500),
       rating,
       date: new Date().toISOString(),
+      image: image ?? undefined,
     };
     const updated = [newReview, ...reviews].slice(0, 50);
     setReviews(updated);
@@ -53,6 +72,8 @@ export function WriteReview() {
     setName("");
     setText("");
     setRating(0);
+    setImage(null);
+    if (fileRef.current) fileRef.current.value = "";
     setSubmitted(true);
     toast.success("Thank you for your review!");
     setTimeout(() => setSubmitted(false), 2200);
