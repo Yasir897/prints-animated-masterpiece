@@ -1,4 +1,5 @@
-import { useEffect } from "react";
+import { useEffect, useState } from "react";
+import { createPortal } from "react-dom";
 import { MessageCircle, Mail, Phone, X } from "lucide-react";
 
 export const CONTACT = {
@@ -13,18 +14,26 @@ interface OrderModalProps {
 }
 
 export function OrderModal({ open, onClose }: OrderModalProps) {
+  const [mounted, setMounted] = useState(false);
+  useEffect(() => setMounted(true), []);
+
   useEffect(() => {
     if (!open) return;
     const onKey = (e: KeyboardEvent) => e.key === "Escape" && onClose();
     document.addEventListener("keydown", onKey);
+    const prevOverflow = document.body.style.overflow;
+    const prevPaddingRight = document.body.style.paddingRight;
+    const scrollbarWidth = window.innerWidth - document.documentElement.clientWidth;
     document.body.style.overflow = "hidden";
+    if (scrollbarWidth > 0) document.body.style.paddingRight = `${scrollbarWidth}px`;
     return () => {
       document.removeEventListener("keydown", onKey);
-      document.body.style.overflow = "";
+      document.body.style.overflow = prevOverflow;
+      document.body.style.paddingRight = prevPaddingRight;
     };
   }, [open, onClose]);
 
-  if (!open) return null;
+  if (!open || !mounted) return null;
 
   const options = [
     {
@@ -56,9 +65,9 @@ export function OrderModal({ open, onClose }: OrderModalProps) {
     },
   ];
 
-  return (
+  return createPortal(
     <div
-      className="fixed inset-0 z-[100] grid place-items-center p-4"
+      className="fixed inset-0 z-[1000] grid place-items-center p-4 overflow-y-auto"
       style={{ animation: "fade-up 0.3s ease-out" }}
       onClick={onClose}
     >
@@ -123,6 +132,7 @@ export function OrderModal({ open, onClose }: OrderModalProps) {
           ))}
         </div>
       </div>
-    </div>
+    </div>,
+    document.body,
   );
 }

@@ -78,14 +78,23 @@ export function Header() {
         </div>
 
         {open && (
-          <div className="md:hidden mt-2 glass rounded-2xl p-4 animate-fade-up">
+          <div
+            className="md:hidden mt-2 rounded-2xl p-4 animate-fade-up shadow-elevated"
+            style={{
+              background: "color-mix(in oklab, oklch(0.10 0.04 265) 92%, transparent)",
+              backdropFilter: "blur(20px) saturate(160%)",
+              WebkitBackdropFilter: "blur(20px) saturate(160%)",
+              border: "1px solid color-mix(in oklab, var(--neon) 35%, transparent)",
+              boxShadow: "0 20px 50px -10px var(--brand-glow), 0 0 30px -10px var(--neon)",
+            }}
+          >
             <div className="flex flex-col gap-1">
               {links.map((l) => (
                 <Link
                   key={l.to}
                   to={l.to}
                   onClick={() => setOpen(false)}
-                  className="px-4 py-3 rounded-lg hover:bg-accent transition-colors"
+                  className="px-4 py-3 rounded-lg text-white/90 hover:text-white hover:bg-white/10 transition-colors font-medium"
                 >
                   {l.label}
                 </Link>
@@ -95,7 +104,7 @@ export function Header() {
                   setOpen(false);
                   setOrderOpen(true);
                 }}
-                className="w-full mt-2 bg-gradient-brand text-brand-foreground"
+                className="w-full mt-2 bg-gradient-brand text-brand-foreground shadow-glow"
               >
                 Order Now
               </Button>

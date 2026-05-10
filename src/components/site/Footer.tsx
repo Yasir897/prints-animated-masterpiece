@@ -34,9 +34,15 @@ export function Footer() {
           <div>
             <h4 className="text-sm font-semibold mb-4">Contact</h4>
             <ul className="space-y-3 text-sm text-white/70">
-              <li className="flex items-center gap-2"><Phone className="h-4 w-4" /> +92 300 1234567</li>
-              <li className="flex items-center gap-2"><Mail className="h-4 w-4" /> hello@easyprints.pk</li>
-              <li className="flex items-center gap-2"><MapPin className="h-4 w-4" /> Lahore, Pakistan</li>
+              <li className="flex items-center gap-2">
+                <Phone className="h-4 w-4 shrink-0" />
+                <a href="tel:+923001234567" className="story-link hover:text-white transition-colors">+92 300 1234567</a>
+              </li>
+              <li className="flex items-center gap-2">
+                <Mail className="h-4 w-4 shrink-0" />
+                <a href="mailto:hello@easyprints.pk" className="story-link hover:text-white transition-colors">hello@easyprints.pk</a>
+              </li>
+              <li className="flex items-center gap-2"><MapPin className="h-4 w-4 shrink-0" /> Lahore, Pakistan</li>
             </ul>
           </div>
 
