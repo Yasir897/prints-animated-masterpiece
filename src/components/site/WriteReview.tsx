@@ -1,5 +1,5 @@
-import { useEffect, useState } from "react";
-import { Star, Send, Quote } from "lucide-react";
+import { useEffect, useRef, useState } from "react";
+import { Star, Send, Quote, ImagePlus, X } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Textarea } from "@/components/ui/textarea";
@@ -12,6 +12,7 @@ interface Review {
   rating: number;
   text: string;
   date: string;
+  image?: string;
 }
 
 const STORAGE_KEY = "easyprints_reviews";
