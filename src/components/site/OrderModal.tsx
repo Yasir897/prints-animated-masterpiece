@@ -65,9 +65,9 @@ export function OrderModal({ open, onClose }: OrderModalProps) {
     },
   ];
 
-  return (
+  return createPortal(
     <div
-      className="fixed inset-0 z-[100] grid place-items-center p-4"
+      className="fixed inset-0 z-[1000] grid place-items-center p-4 overflow-y-auto"
       style={{ animation: "fade-up 0.3s ease-out" }}
       onClick={onClose}
     >
