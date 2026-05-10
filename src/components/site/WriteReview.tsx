@@ -234,6 +234,11 @@ export function WriteReview() {
                     </div>
                   </div>
                   <p className="mt-3 text-sm text-foreground/90">{r.text}</p>
+                  {r.image && (
+                    <div className="mt-3 overflow-hidden rounded-xl neon-border">
+                      <img src={r.image} alt={`${r.name}'s upload`} loading="lazy" className="w-full max-h-72 object-cover" />
+                    </div>
+                  )}
                 </div>
               ))
             )}
