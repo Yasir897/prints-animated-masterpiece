@@ -12,6 +12,7 @@ import appCss from "../styles.css?url";
 import { PageLoader } from "@/components/site/PageLoader";
 import { ScrollProgress } from "@/components/site/ScrollProgress";
 import { CursorFx } from "@/components/site/CursorFx";
+import { SmoothScroll } from "@/components/site/SmoothScroll";
 
 function NotFoundComponent() {
   return (
@@ -120,6 +121,7 @@ function RootComponent() {
 
   return (
     <QueryClientProvider client={queryClient}>
+      <SmoothScroll />
       <PageLoader />
       <ScrollProgress />
       <CursorFx />
