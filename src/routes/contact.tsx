@@ -1,21 +1,12 @@
 import { createFileRoute } from "@tanstack/react-router";
-import { useState } from "react";
-import { z } from "zod";
-import { toast } from "sonner";
-import { Mail, Phone, MapPin, Upload, Send } from "lucide-react";
-import { Button } from "@/components/ui/button";
-import { Input } from "@/components/ui/input";
-import { Textarea } from "@/components/ui/textarea";
-import { Label } from "@/components/ui/label";
-import {
-  Select, SelectContent, SelectItem, SelectTrigger, SelectValue,
-} from "@/components/ui/select";
+import { Mail, Phone, MapPin } from "lucide-react";
 import {
   Accordion, AccordionContent, AccordionItem, AccordionTrigger,
 } from "@/components/ui/accordion";
 import { Header } from "@/components/site/Header";
 import { Footer } from "@/components/site/Footer";
 import { WhatsAppButton } from "@/components/site/WhatsAppButton";
+import { ContactOptions } from "@/components/site/ContactOptions";
 import { Toaster } from "@/components/ui/sonner";
 import { useReveal } from "@/hooks/use-reveal";
 
