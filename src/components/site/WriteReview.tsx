@@ -144,6 +144,42 @@ export function WriteReview() {
                   placeholder="Tell us about your experience…"
                 />
               </div>
+              <div className="grid gap-2">
+                <Label>Add a photo (optional)</Label>
+                <input
+                  ref={fileRef}
+                  id="rimage"
+                  type="file"
+                  accept="image/*"
+                  onChange={onPickImage}
+                  className="sr-only"
+                />
+                {!image ? (
+                  <button
+                    type="button"
+                    onClick={() => fileRef.current?.click()}
+                    className="group relative flex items-center justify-center gap-2 rounded-xl border border-dashed border-border bg-background/40 px-4 py-6 text-sm text-muted-foreground transition-all hover:border-primary hover:text-foreground hover:shadow-glow"
+                  >
+                    <ImagePlus className="h-5 w-5 transition-transform group-hover:scale-110" />
+                    Click to upload an image
+                  </button>
+                ) : (
+                  <div className="relative overflow-hidden rounded-xl neon-border">
+                    <img src={image} alt="Review preview" className="h-48 w-full object-cover" />
+                    <button
+                      type="button"
+                      onClick={() => {
+                        setImage(null);
+                        if (fileRef.current) fileRef.current.value = "";
+                      }}
+                      className="absolute top-2 right-2 grid h-8 w-8 place-items-center rounded-full bg-background/80 backdrop-blur transition-transform hover:scale-110"
+                      aria-label="Remove image"
+                    >
+                      <X className="h-4 w-4" />
+                    </button>
+                  </div>
+                )}
+              </div>
               <Button
                 type="submit"
                 className="bg-gradient-brand text-brand-foreground hover:opacity-90 shadow-glow h-12 px-8 relative overflow-hidden"
