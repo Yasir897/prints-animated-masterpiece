@@ -1,4 +1,5 @@
-import { useEffect } from "react";
+import { useEffect, useState } from "react";
+import { createPortal } from "react-dom";
 import { MessageCircle, Mail, Phone, X } from "lucide-react";
 
 export const CONTACT = {
