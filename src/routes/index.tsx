@@ -114,7 +114,7 @@ function ServicesGrid() {
   return (
     <section className="py-24 bg-background">
       <div className="mx-auto max-w-7xl px-6">
-        <div className="max-w-2xl reveal">
+        <div className="max-w-2xl reveal-up">
           <span className="text-sm font-semibold text-primary uppercase tracking-wider">What we print</span>
           <h2 className="mt-2 text-4xl sm:text-5xl font-bold">Services for every page you need</h2>
           <p className="mt-4 text-muted-foreground">From a single assignment to bulk business orders — we handle it all with care and precision.</p>
@@ -124,8 +124,8 @@ function ServicesGrid() {
           {services.map(({ icon: Icon, title, desc }, i) => (
             <div
               key={title}
-              className="reveal neon-border group relative overflow-hidden rounded-2xl glass p-7 hover-lift"
-              style={{ transitionDelay: `${i * 60}ms` }}
+              className="reveal-scale neon-border group relative overflow-hidden rounded-2xl glass p-7 hover-lift"
+              data-reveal-delay={i * 70}
             >
               <div className="absolute -right-10 -top-10 h-32 w-32 rounded-full bg-gradient-brand opacity-0 group-hover:opacity-30 transition-opacity duration-500 blur-2xl" />
               <div className="grid h-12 w-12 place-items-center rounded-xl bg-gradient-brand text-brand-foreground shadow-glow group-hover:scale-110 transition-transform">
