@@ -1,6 +1,5 @@
 import { createFileRoute } from "@tanstack/react-router";
 import { Link } from "@tanstack/react-router";
-import { useEffect, useRef } from "react";
 import {
   FileText, BookOpen, GraduationCap, Newspaper, ClipboardList,
   FileSpreadsheet, Megaphone, Briefcase, Boxes, Upload, Printer, Truck,
@@ -15,6 +14,7 @@ import { OrderNowButton } from "@/components/site/OrderNowButton";
 import { WriteReview } from "@/components/site/WriteReview";
 import { Toaster } from "@/components/ui/sonner";
 import { useReveal } from "@/hooks/use-reveal";
+import { useParallax } from "@/hooks/use-parallax";
 import heroImg from "@/assets/hero-books.jpg";
 
 export const Route = createFileRoute("/")({
