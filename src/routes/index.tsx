@@ -145,11 +145,12 @@ function ServicesGrid() {
 }
 
 function HowItWorks() {
+  const bgRef = useParallax<HTMLDivElement>(50);
   return (
     <section className="py-24 bg-secondary/40 relative overflow-hidden">
-      <div className="absolute inset-0 bg-gradient-radial opacity-30 pointer-events-none" />
+      <div ref={bgRef} className="parallax absolute inset-0 bg-gradient-radial opacity-30 pointer-events-none" />
       <div className="relative mx-auto max-w-7xl px-6">
-        <div className="text-center max-w-2xl mx-auto reveal">
+        <div className="text-center max-w-2xl mx-auto reveal-up">
           <span className="text-sm font-semibold text-primary uppercase tracking-wider">How it works</span>
           <h2 className="mt-2 text-4xl sm:text-5xl font-bold">Three simple steps</h2>
           <p className="mt-4 text-muted-foreground">From upload to delivery, faster than your coffee break.</p>
@@ -158,8 +159,8 @@ function HowItWorks() {
         <div className="mt-16 grid gap-8 md:grid-cols-3 relative">
           <div className="hidden md:block absolute top-12 left-[16%] right-[16%] h-px bg-gradient-to-r from-transparent via-primary/40 to-transparent" />
           {steps.map(({ icon: Icon, title, desc }, i) => (
-            <div key={title} className="reveal relative text-center" style={{ transitionDelay: `${i * 150}ms` }}>
-              <div className="relative mx-auto grid h-24 w-24 place-items-center rounded-2xl bg-gradient-brand text-brand-foreground shadow-glow">
+            <div key={title} className="reveal-up relative text-center" data-reveal-delay={i * 160}>
+              <div className="relative mx-auto grid h-24 w-24 place-items-center rounded-2xl bg-gradient-brand text-brand-foreground shadow-glow float-slow" style={{ animationDelay: `${i * 0.6}s` }}>
                 <Icon className="h-9 w-9" />
                 <span className="absolute -top-2 -right-2 grid h-8 w-8 place-items-center rounded-full bg-background border-2 border-primary text-primary text-sm font-bold">
                   {i + 1}
@@ -176,6 +177,7 @@ function HowItWorks() {
 }
 
 function DeliverySection() {
+  const orbRef = useParallax<HTMLDivElement>(80);
   const features = [
     {
       icon: Clock,
@@ -199,12 +201,14 @@ function DeliverySection() {
     },
   ];
 
+  const variants = ["reveal-up", "reveal-left", "reveal-right", "reveal-up"];
+
   return (
     <section className="py-24 relative overflow-hidden">
       <div className="absolute inset-0 bg-gradient-radial opacity-25 pointer-events-none" />
-      <div className="absolute -top-20 left-1/2 -translate-x-1/2 h-72 w-[36rem] rounded-full bg-gradient-brand opacity-20 blur-3xl" />
+      <div ref={orbRef} className="parallax absolute -top-20 left-1/2 -translate-x-1/2 h-72 w-[36rem] rounded-full bg-gradient-brand opacity-20 blur-3xl float-slower" />
       <div className="relative mx-auto max-w-7xl px-6">
-        <div className="text-center max-w-2xl mx-auto reveal">
+        <div className="text-center max-w-2xl mx-auto reveal-up">
           <span className="inline-flex items-center gap-2 rounded-full glass px-4 py-1.5 text-xs font-medium uppercase tracking-wider text-primary">
             <Globe2 className="h-3.5 w-3.5" /> Delivery & Reach
           </span>
@@ -220,8 +224,8 @@ function DeliverySection() {
           {features.map(({ icon: Icon, title, desc }, i) => (
             <div
               key={title}
-              className="reveal neon-border group rounded-2xl glass p-7 hover-lift relative overflow-hidden"
-              style={{ transitionDelay: `${i * 90}ms` }}
+              className={`${variants[i] ?? "reveal-up"} neon-border group rounded-2xl glass p-7 hover-lift relative overflow-hidden`}
+              data-reveal-delay={i * 110}
             >
               <div className="absolute -right-8 -top-8 h-28 w-28 rounded-full bg-gradient-brand opacity-0 group-hover:opacity-40 blur-2xl transition-opacity duration-500" />
               <div className="grid h-14 w-14 place-items-center rounded-2xl bg-gradient-brand text-brand-foreground shadow-glow group-hover:scale-110 group-hover:rotate-6 transition-all">
