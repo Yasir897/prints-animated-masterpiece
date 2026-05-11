@@ -245,10 +245,10 @@ function CTASection() {
   return (
     <section className="py-24">
       <div className="mx-auto max-w-7xl px-6">
-        <div className="reveal relative overflow-hidden rounded-3xl bg-gradient-hero p-10 sm:p-16 text-white shadow-elevated">
+        <div className="reveal-scale relative overflow-hidden rounded-3xl bg-gradient-hero p-10 sm:p-16 text-white shadow-elevated">
           <Particles count={24} />
           <div className="absolute inset-0 bg-gradient-radial opacity-60" />
-          <div className="absolute -top-20 -right-20 h-64 w-64 rounded-full bg-fuchsia-500/40 blur-3xl animate-float" />
+          <div className="absolute -top-20 -right-20 h-64 w-64 rounded-full bg-fuchsia-500/40 blur-3xl float-slower" />
           <div className="relative max-w-2xl">
             <h2 className="text-4xl sm:text-5xl font-bold leading-tight">
               Ready to print? <br />
