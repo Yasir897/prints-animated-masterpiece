@@ -21,7 +21,7 @@ export function PageLoader() {
       className="page-loader"
       style={{
         opacity: fading ? 0 : 1,
-        transition: "opacity 0.7s ease",
+        transition: "opacity 1.1s ease",
         background:
           "radial-gradient(1200px 800px at 50% 40%, color-mix(in oklab, var(--neon) 12%, transparent), transparent 60%), var(--background)",
       }}
