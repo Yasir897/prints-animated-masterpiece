@@ -122,7 +122,6 @@ function RootComponent() {
     <QueryClientProvider client={queryClient}>
       <SmoothScroll />
       <PageLoader />
-      <ScrollProgress />
       <CursorFx />
       <Outlet />
     </QueryClientProvider>
