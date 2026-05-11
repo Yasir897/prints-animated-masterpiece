@@ -55,6 +55,7 @@ function HomePage() {
       <Toaster />
       <Hero />
       <ServicesGrid />
+      <FeatureStats />
       <HowItWorks />
       <DeliverySection />
       <WriteReview />
