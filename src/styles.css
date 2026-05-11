@@ -154,6 +154,18 @@
   }
   h1, h2, h3, h4 { letter-spacing: -0.02em; }
   ::selection { background: color-mix(in oklab, var(--neon) 50%, transparent); color: white; }
+
+  @media (prefers-reduced-motion: reduce) {
+    *, *::before, *::after {
+      animation-duration: 0.001ms !important;
+      animation-iteration-count: 1 !important;
+      transition-duration: 0.001ms !important;
+      scroll-behavior: auto !important;
+    }
+    .reveal, .reveal-up, .reveal-down, .reveal-left, .reveal-right, .reveal-scale {
+      opacity: 1 !important; transform: none !important;
+    }
+  }
 }
 
 @layer utilities {
@@ -192,8 +204,38 @@
   .hover-lift { transition: transform .35s cubic-bezier(.2,.8,.2,1), box-shadow .35s; }
   .hover-lift:hover { transform: translateY(-6px); box-shadow: var(--shadow-elevated); }
 
-  .reveal { opacity: 0; transform: translateY(28px); transition: opacity .8s ease, transform .8s cubic-bezier(.2,.8,.2,1); }
-  .reveal.in-view { opacity: 1; transform: none; }
+  /* Scroll reveal variants */
+  .reveal,
+  .reveal-up,
+  .reveal-down,
+  .reveal-left,
+  .reveal-right,
+  .reveal-scale {
+    opacity: 0;
+    will-change: opacity, transform;
+    transition:
+      opacity .9s cubic-bezier(.2,.7,.2,1),
+      transform .9s cubic-bezier(.2,.7,.2,1);
+  }
+  .reveal,
+  .reveal-up { transform: translate3d(0, 36px, 0); }
+  .reveal-down { transform: translate3d(0, -36px, 0); }
+  .reveal-left { transform: translate3d(-44px, 0, 0); }
+  .reveal-right { transform: translate3d(44px, 0, 0); }
+  .reveal-scale { transform: scale(0.94); }
+  .reveal.in-view,
+  .reveal-up.in-view,
+  .reveal-down.in-view,
+  .reveal-left.in-view,
+  .reveal-right.in-view,
+  .reveal-scale.in-view { opacity: 1; transform: none; }
+
+  /* Floating ambient motion */
+  .float-slow { animation: float 9s ease-in-out infinite; }
+  .float-slower { animation: float 13s ease-in-out infinite; }
+
+  /* Parallax-ready container hint */
+  .parallax { will-change: transform; transform: translate3d(0,0,0); }
 
   /* Animated neon border */
   .neon-border {

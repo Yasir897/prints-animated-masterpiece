@@ -1,6 +1,5 @@
 import { createFileRoute } from "@tanstack/react-router";
 import { Link } from "@tanstack/react-router";
-import { useEffect, useRef } from "react";
 import {
   FileText, BookOpen, GraduationCap, Newspaper, ClipboardList,
   FileSpreadsheet, Megaphone, Briefcase, Boxes, Upload, Printer, Truck,
@@ -15,6 +14,7 @@ import { OrderNowButton } from "@/components/site/OrderNowButton";
 import { WriteReview } from "@/components/site/WriteReview";
 import { Toaster } from "@/components/ui/sonner";
 import { useReveal } from "@/hooks/use-reveal";
+import { useParallax } from "@/hooks/use-parallax";
 import heroImg from "@/assets/hero-books.jpg";
 
 export const Route = createFileRoute("/")({
@@ -64,20 +64,14 @@ function HomePage() {
 }
 
 function Hero() {
-  const ref = useRef<HTMLDivElement>(null);
-  useEffect(() => {
-    const onScroll = () => {
-      if (!ref.current) return;
-      ref.current.style.transform = `translateY(${window.scrollY * 0.25}px)`;
-    };
-    window.addEventListener("scroll", onScroll, { passive: true });
-    return () => window.removeEventListener("scroll", onScroll);
-  }, []);
+  const bgRef = useParallax<HTMLDivElement>(120);
+  const orbA = useParallax<HTMLDivElement>(60);
+  const orbB = useParallax<HTMLDivElement>(-80);
 
   return (
     <section className="relative min-h-screen flex items-center pt-32 pb-16 overflow-hidden bg-ink isolate">
-      <div ref={ref} className="absolute inset-0 z-0">
-        <img src={heroImg} alt="Library with stacked books" className="h-full w-full object-cover scale-110" width={1920} height={1280} />
+      <div ref={bgRef} className="parallax absolute inset-0 z-0">
+        <img src={heroImg} alt="Library with stacked books" className="h-full w-full object-cover scale-110" width={1920} height={1280} loading="eager" />
         <div className="absolute inset-0 bg-gradient-to-b from-ink/85 via-ink/75 to-ink/95" />
         <div className="absolute inset-0 bg-gradient-radial opacity-70" />
         <div className="absolute inset-0 bg-grid opacity-30" />
@@ -85,8 +79,8 @@ function Hero() {
       <Particles count={30} />
       <div className="absolute inset-0 spotlight pointer-events-none z-0" />
 
-      <div className="absolute top-1/4 left-10 h-32 w-32 rounded-full bg-gradient-brand opacity-30 blur-3xl animate-float z-0" />
-      <div className="absolute bottom-1/4 right-10 h-40 w-40 rounded-full bg-fuchsia-500/40 blur-3xl animate-float z-0" style={{ animationDelay: "2s" }} />
+      <div ref={orbA} className="parallax absolute top-1/4 left-10 h-32 w-32 rounded-full bg-gradient-brand opacity-30 blur-3xl float-slow z-0" />
+      <div ref={orbB} className="parallax absolute bottom-1/4 right-10 h-40 w-40 rounded-full bg-fuchsia-500/40 blur-3xl float-slower z-0" />
 
       <div className="relative z-10 mx-auto max-w-7xl px-6 text-white drop-shadow-lg">
         <span className="inline-flex items-center gap-2 rounded-full glass-dark px-4 py-1.5 text-xs font-medium animate-fade-up">
@@ -120,7 +114,7 @@ function ServicesGrid() {
   return (
     <section className="py-24 bg-background">
       <div className="mx-auto max-w-7xl px-6">
-        <div className="max-w-2xl reveal">
+        <div className="max-w-2xl reveal-up">
           <span className="text-sm font-semibold text-primary uppercase tracking-wider">What we print</span>
           <h2 className="mt-2 text-4xl sm:text-5xl font-bold">Services for every page you need</h2>
           <p className="mt-4 text-muted-foreground">From a single assignment to bulk business orders — we handle it all with care and precision.</p>
@@ -130,8 +124,8 @@ function ServicesGrid() {
           {services.map(({ icon: Icon, title, desc }, i) => (
             <div
               key={title}
-              className="reveal neon-border group relative overflow-hidden rounded-2xl glass p-7 hover-lift"
-              style={{ transitionDelay: `${i * 60}ms` }}
+              className="reveal-scale neon-border group relative overflow-hidden rounded-2xl glass p-7 hover-lift"
+              data-reveal-delay={i * 70}
             >
               <div className="absolute -right-10 -top-10 h-32 w-32 rounded-full bg-gradient-brand opacity-0 group-hover:opacity-30 transition-opacity duration-500 blur-2xl" />
               <div className="grid h-12 w-12 place-items-center rounded-xl bg-gradient-brand text-brand-foreground shadow-glow group-hover:scale-110 transition-transform">
@@ -151,11 +145,12 @@ function ServicesGrid() {
 }
 
 function HowItWorks() {
+  const bgRef = useParallax<HTMLDivElement>(50);
   return (
     <section className="py-24 bg-secondary/40 relative overflow-hidden">
-      <div className="absolute inset-0 bg-gradient-radial opacity-30 pointer-events-none" />
+      <div ref={bgRef} className="parallax absolute inset-0 bg-gradient-radial opacity-30 pointer-events-none" />
       <div className="relative mx-auto max-w-7xl px-6">
-        <div className="text-center max-w-2xl mx-auto reveal">
+        <div className="text-center max-w-2xl mx-auto reveal-up">
           <span className="text-sm font-semibold text-primary uppercase tracking-wider">How it works</span>
           <h2 className="mt-2 text-4xl sm:text-5xl font-bold">Three simple steps</h2>
           <p className="mt-4 text-muted-foreground">From upload to delivery, faster than your coffee break.</p>
@@ -164,8 +159,8 @@ function HowItWorks() {
         <div className="mt-16 grid gap-8 md:grid-cols-3 relative">
           <div className="hidden md:block absolute top-12 left-[16%] right-[16%] h-px bg-gradient-to-r from-transparent via-primary/40 to-transparent" />
           {steps.map(({ icon: Icon, title, desc }, i) => (
-            <div key={title} className="reveal relative text-center" style={{ transitionDelay: `${i * 150}ms` }}>
-              <div className="relative mx-auto grid h-24 w-24 place-items-center rounded-2xl bg-gradient-brand text-brand-foreground shadow-glow">
+            <div key={title} className="reveal-up relative text-center" data-reveal-delay={i * 160}>
+              <div className="relative mx-auto grid h-24 w-24 place-items-center rounded-2xl bg-gradient-brand text-brand-foreground shadow-glow float-slow" style={{ animationDelay: `${i * 0.6}s` }}>
                 <Icon className="h-9 w-9" />
                 <span className="absolute -top-2 -right-2 grid h-8 w-8 place-items-center rounded-full bg-background border-2 border-primary text-primary text-sm font-bold">
                   {i + 1}
@@ -182,6 +177,7 @@ function HowItWorks() {
 }
 
 function DeliverySection() {
+  const orbRef = useParallax<HTMLDivElement>(80);
   const features = [
     {
       icon: Clock,
@@ -205,12 +201,14 @@ function DeliverySection() {
     },
   ];
 
+  const variants = ["reveal-up", "reveal-left", "reveal-right", "reveal-up"];
+
   return (
     <section className="py-24 relative overflow-hidden">
       <div className="absolute inset-0 bg-gradient-radial opacity-25 pointer-events-none" />
-      <div className="absolute -top-20 left-1/2 -translate-x-1/2 h-72 w-[36rem] rounded-full bg-gradient-brand opacity-20 blur-3xl" />
+      <div ref={orbRef} className="parallax absolute -top-20 left-1/2 -translate-x-1/2 h-72 w-[36rem] rounded-full bg-gradient-brand opacity-20 blur-3xl float-slower" />
       <div className="relative mx-auto max-w-7xl px-6">
-        <div className="text-center max-w-2xl mx-auto reveal">
+        <div className="text-center max-w-2xl mx-auto reveal-up">
           <span className="inline-flex items-center gap-2 rounded-full glass px-4 py-1.5 text-xs font-medium uppercase tracking-wider text-primary">
             <Globe2 className="h-3.5 w-3.5" /> Delivery & Reach
           </span>
@@ -226,8 +224,8 @@ function DeliverySection() {
           {features.map(({ icon: Icon, title, desc }, i) => (
             <div
               key={title}
-              className="reveal neon-border group rounded-2xl glass p-7 hover-lift relative overflow-hidden"
-              style={{ transitionDelay: `${i * 90}ms` }}
+              className={`${variants[i] ?? "reveal-up"} neon-border group rounded-2xl glass p-7 hover-lift relative overflow-hidden`}
+              data-reveal-delay={i * 110}
             >
               <div className="absolute -right-8 -top-8 h-28 w-28 rounded-full bg-gradient-brand opacity-0 group-hover:opacity-40 blur-2xl transition-opacity duration-500" />
               <div className="grid h-14 w-14 place-items-center rounded-2xl bg-gradient-brand text-brand-foreground shadow-glow group-hover:scale-110 group-hover:rotate-6 transition-all">
@@ -247,10 +245,10 @@ function CTASection() {
   return (
     <section className="py-24">
       <div className="mx-auto max-w-7xl px-6">
-        <div className="reveal relative overflow-hidden rounded-3xl bg-gradient-hero p-10 sm:p-16 text-white shadow-elevated">
+        <div className="reveal-scale relative overflow-hidden rounded-3xl bg-gradient-hero p-10 sm:p-16 text-white shadow-elevated">
           <Particles count={24} />
           <div className="absolute inset-0 bg-gradient-radial opacity-60" />
-          <div className="absolute -top-20 -right-20 h-64 w-64 rounded-full bg-fuchsia-500/40 blur-3xl animate-float" />
+          <div className="absolute -top-20 -right-20 h-64 w-64 rounded-full bg-fuchsia-500/40 blur-3xl float-slower" />
           <div className="relative max-w-2xl">
             <h2 className="text-4xl sm:text-5xl font-bold leading-tight">
               Ready to print? <br />
