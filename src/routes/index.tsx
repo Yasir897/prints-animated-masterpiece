@@ -3,7 +3,7 @@ import { Link } from "@tanstack/react-router";
 import {
   FileText, BookOpen, GraduationCap, Newspaper, ClipboardList,
   FileSpreadsheet, Megaphone, Briefcase, Boxes, Upload, Printer, Truck,
-  ArrowRight, Clock, Globe2, Plane, MapPin,
+  ArrowRight, Clock, Globe2, Plane, MapPin, Zap, Sparkles,
 } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Header } from "@/components/site/Header";
@@ -12,6 +12,8 @@ import { WhatsAppButton } from "@/components/site/WhatsAppButton";
 import { Particles } from "@/components/site/Particles";
 import { OrderNowButton } from "@/components/site/OrderNowButton";
 import { WriteReview } from "@/components/site/WriteReview";
+import { BookFlip } from "@/components/site/BookFlip";
+import { FloatingPapers } from "@/components/site/FloatingPapers";
 import { Toaster } from "@/components/ui/sonner";
 import { useReveal } from "@/hooks/use-reveal";
 import { useParallax } from "@/hooks/use-parallax";
@@ -53,6 +55,7 @@ function HomePage() {
       <Toaster />
       <Hero />
       <ServicesGrid />
+      <FeatureStats />
       <HowItWorks />
       <DeliverySection />
       <WriteReview />
@@ -82,28 +85,82 @@ function Hero() {
       <div ref={orbA} className="parallax absolute top-1/4 left-10 h-32 w-32 rounded-full bg-gradient-brand opacity-30 blur-3xl float-slow z-0" />
       <div ref={orbB} className="parallax absolute bottom-1/4 right-10 h-40 w-40 rounded-full bg-fuchsia-500/40 blur-3xl float-slower z-0" />
 
-      <div className="relative z-10 mx-auto max-w-7xl px-6 text-white drop-shadow-lg">
-        <span className="inline-flex items-center gap-2 rounded-full glass-dark px-4 py-1.5 text-xs font-medium animate-fade-up">
-          <span className="h-2 w-2 rounded-full bg-emerald-400 animate-pulse" />
-          Premium printing for students & businesses
-        </span>
-        <h1 className="mt-6 max-w-4xl text-4xl sm:text-6xl lg:text-7xl font-bold leading-[1.05] animate-fade-up" style={{ animationDelay: "0.1s" }}>
-          Professional Printing<br />
-          <span className="text-gradient">for Students & Businesses</span>
-        </h1>
-        <p className="mt-6 max-w-2xl text-lg text-white/80 animate-fade-up" style={{ animationDelay: "0.2s" }}>
-          EasyPrints delivers fast, high-quality printing — books, PDFs,
-          assignments, journals, thesis, forms and bulk business orders. From first page to final delivery.
-        </p>
-        <div className="mt-8 flex flex-wrap gap-4 animate-fade-up" style={{ animationDelay: "0.3s" }}>
-          <OrderNowButton className="inline-flex items-center justify-center gap-2 rounded-md bg-gradient-brand text-brand-foreground hover:opacity-90 shadow-glow h-12 px-8 text-base font-medium transition">
-            Order Now <ArrowRight className="h-4 w-4" />
-          </OrderNowButton>
-          <Link to="/services">
-            <Button size="lg" variant="outline" className="h-12 px-8 text-base bg-white/5 border-white/30 text-white hover:bg-white/10 hover:text-white">
-              Explore Services
-            </Button>
-          </Link>
+      <div className="relative z-10 mx-auto max-w-7xl px-6 text-white drop-shadow-lg grid lg:grid-cols-[1.2fr,1fr] gap-12 items-center">
+        <div>
+          <span className="inline-flex items-center gap-2 rounded-full glass-dark px-4 py-1.5 text-xs font-medium animate-fade-up">
+            <span className="h-2 w-2 rounded-full bg-emerald-400 animate-pulse" />
+            Premium printing for students & businesses
+          </span>
+          <h1 className="mt-6 max-w-4xl text-4xl sm:text-6xl lg:text-7xl font-bold leading-[1.05] animate-fade-up" style={{ animationDelay: "0.1s" }}>
+            Professional Printing<br />
+            <span className="text-gradient">for Students & Businesses</span>
+          </h1>
+          <p className="mt-6 max-w-2xl text-lg text-white/80 animate-fade-up" style={{ animationDelay: "0.2s" }}>
+            EasyPrints delivers fast, high-quality printing — books, PDFs,
+            assignments, journals, thesis, forms and bulk business orders. From first page to final delivery.
+          </p>
+          <div className="mt-8 flex flex-wrap gap-4 animate-fade-up" style={{ animationDelay: "0.3s" }}>
+            <OrderNowButton className="inline-flex items-center justify-center gap-2 rounded-md bg-gradient-brand text-brand-foreground hover:opacity-90 shadow-glow h-12 px-8 text-base font-medium transition">
+              Order Now <ArrowRight className="h-4 w-4" />
+            </OrderNowButton>
+            <Link to="/services">
+              <Button size="lg" variant="outline" className="h-12 px-8 text-base bg-white/5 border-white/30 text-white hover:bg-white/10 hover:text-white">
+                Explore Services
+              </Button>
+            </Link>
+          </div>
+        </div>
+        <div className="hidden lg:flex justify-center items-center animate-fade-up" style={{ animationDelay: "0.4s" }}>
+          <BookFlip />
+        </div>
+      </div>
+    </section>
+  );
+}
+
+function FeatureStats() {
+  const items = [
+    { icon: GraduationCap, title: "Built for Students & Businesses", desc: "Trusted by universities, schools, and growing companies alike." },
+    { icon: Zap, title: "Fast & Reliable Printing", desc: "Premium machines, sharp output, and predictable turnaround times." },
+    { icon: BookOpen, title: "University & Thesis Printing", desc: "Spec-perfect binding and finishing for academic submissions." },
+    { icon: Boxes, title: "Bulk Printing Solutions", desc: "Wholesale-grade quality for high-volume orders, big or small." },
+    { icon: MapPin, title: "Delivery Across Pakistan", desc: "Doorstep delivery to every city — Karachi to Peshawar." },
+    { icon: Plane, title: "International Delivery Available", desc: "Worldwide shipping for books, thesis and bulk orders." },
+  ];
+  const variants = ["reveal-up", "reveal-left", "reveal-right", "reveal-up", "reveal-left", "reveal-right"];
+
+  return (
+    <section className="py-24 relative overflow-hidden">
+      <FloatingPapers count={5} />
+      <div className="absolute inset-0 bg-gradient-radial opacity-25 pointer-events-none" />
+      <div className="relative mx-auto max-w-7xl px-6">
+        <div className="text-center max-w-2xl mx-auto reveal-up">
+          <span className="inline-flex items-center gap-2 rounded-full glass px-4 py-1.5 text-xs font-medium uppercase tracking-wider text-primary">
+            <Sparkles className="h-3.5 w-3.5" /> Why EasyPrints
+          </span>
+          <h2 className="mt-3 text-4xl sm:text-5xl font-bold">
+            Premium printing, <span className="text-gradient">crafted with care.</span>
+          </h2>
+          <p className="mt-4 text-muted-foreground">
+            Every page treated like it matters — because to someone, it does.
+          </p>
+        </div>
+
+        <div className="mt-14 grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
+          {items.map(({ icon: Icon, title, desc }, i) => (
+            <div
+              key={title}
+              className={`${variants[i]} neon-border group relative overflow-hidden rounded-2xl glass p-7 hover-lift`}
+              data-reveal-delay={i * 90}
+            >
+              <div className="absolute -right-10 -top-10 h-32 w-32 rounded-full bg-gradient-brand opacity-0 group-hover:opacity-30 transition-opacity duration-500 blur-2xl" />
+              <div className="grid h-14 w-14 place-items-center rounded-2xl bg-gradient-brand text-brand-foreground shadow-glow float-slow group-hover:scale-110 group-hover:rotate-6 transition-all" style={{ animationDelay: `${i * 0.4}s` }}>
+                <Icon className="h-7 w-7" />
+              </div>
+              <h3 className="mt-5 text-lg font-semibold">{title}</h3>
+              <p className="mt-2 text-sm text-muted-foreground leading-relaxed">{desc}</p>
+            </div>
+          ))}
         </div>
       </div>
     </section>
@@ -112,8 +169,9 @@ function Hero() {
 
 function ServicesGrid() {
   return (
-    <section className="py-24 bg-background">
-      <div className="mx-auto max-w-7xl px-6">
+    <section className="py-24 bg-background relative overflow-hidden">
+      <FloatingPapers count={4} />
+      <div className="relative mx-auto max-w-7xl px-6">
         <div className="max-w-2xl reveal-up">
           <span className="text-sm font-semibold text-primary uppercase tracking-wider">What we print</span>
           <h2 className="mt-2 text-4xl sm:text-5xl font-bold">Services for every page you need</h2>
