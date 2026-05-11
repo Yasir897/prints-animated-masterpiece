@@ -3,7 +3,7 @@ import { Link } from "@tanstack/react-router";
 import {
   FileText, BookOpen, GraduationCap, Newspaper, ClipboardList,
   FileSpreadsheet, Megaphone, Briefcase, Boxes, Upload, Printer, Truck,
-  ArrowRight, Clock, Globe2, Plane, MapPin,
+  ArrowRight, Clock, Globe2, Plane, MapPin, Zap, Sparkles, Users,
 } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Header } from "@/components/site/Header";
@@ -12,6 +12,8 @@ import { WhatsAppButton } from "@/components/site/WhatsAppButton";
 import { Particles } from "@/components/site/Particles";
 import { OrderNowButton } from "@/components/site/OrderNowButton";
 import { WriteReview } from "@/components/site/WriteReview";
+import { BookFlip } from "@/components/site/BookFlip";
+import { FloatingPapers } from "@/components/site/FloatingPapers";
 import { Toaster } from "@/components/ui/sonner";
 import { useReveal } from "@/hooks/use-reveal";
 import { useParallax } from "@/hooks/use-parallax";
