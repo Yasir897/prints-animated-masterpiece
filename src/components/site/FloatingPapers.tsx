@@ -20,6 +20,7 @@ export function FloatingPapers({ count = 6 }: { count?: number }) {
       }),
     [count],
   );
+  if (!mounted) return null;
   return (
     <div className="floating-papers" aria-hidden>
       {sheets.map((s) => (
