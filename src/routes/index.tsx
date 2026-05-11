@@ -169,8 +169,9 @@ function FeatureStats() {
 
 function ServicesGrid() {
   return (
-    <section className="py-24 bg-background">
-      <div className="mx-auto max-w-7xl px-6">
+    <section className="py-24 bg-background relative overflow-hidden">
+      <FloatingPapers count={4} />
+      <div className="relative mx-auto max-w-7xl px-6">
         <div className="max-w-2xl reveal-up">
           <span className="text-sm font-semibold text-primary uppercase tracking-wider">What we print</span>
           <h2 className="mt-2 text-4xl sm:text-5xl font-bold">Services for every page you need</h2>
