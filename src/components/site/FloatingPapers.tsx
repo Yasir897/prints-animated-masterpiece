@@ -4,6 +4,8 @@ import { useEffect, useMemo, useState } from "react";
  * Softly floating paper sheets — subtle, ambient. Used between sections.
  */
 export function FloatingPapers({ count = 6 }: { count?: number }) {
+  const [mounted, setMounted] = useState(false);
+  useEffect(() => setMounted(true), []);
   const sheets = useMemo(
     () =>
       Array.from({ length: count }).map((_, i) => {
