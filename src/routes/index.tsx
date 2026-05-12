@@ -144,7 +144,7 @@ function ServicesGrid() {
   );
 }
 
-// WhyChooseUs section removed per request
+function HowItWorks() {
   const bgRef = useParallax<HTMLDivElement>(50);
   return (
     <section className="py-24 bg-secondary/40 relative overflow-hidden">
