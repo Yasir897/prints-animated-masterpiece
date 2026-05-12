@@ -53,7 +53,6 @@ function HomePage() {
       <Toaster />
       <Hero />
       <ServicesGrid />
-      <WhyChooseUs />
       <HowItWorks />
       <DeliverySection />
       <WriteReview />
