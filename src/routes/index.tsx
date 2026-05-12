@@ -3,7 +3,7 @@ import { Link } from "@tanstack/react-router";
 import {
   FileText, BookOpen, GraduationCap, Newspaper, ClipboardList,
   FileSpreadsheet, Megaphone, Briefcase, Boxes, Upload, Printer, Truck,
-  ArrowRight, Clock, Globe2, Plane, MapPin,
+  ArrowRight, Clock, Globe2, Plane, MapPin, Users, Zap, Package, Sparkles,
 } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Header } from "@/components/site/Header";
@@ -53,6 +53,7 @@ function HomePage() {
       <Toaster />
       <Hero />
       <ServicesGrid />
+      <WhyChooseUs />
       <HowItWorks />
       <DeliverySection />
       <WriteReview />
