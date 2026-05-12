@@ -1,4 +1,5 @@
 import { createFileRoute, Link } from "@tanstack/react-router";
+import { RouteSkeleton } from "@/components/site/RouteSkeleton";
 import { Check, ArrowRight } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Header } from "@/components/site/Header";
@@ -18,6 +19,7 @@ export const Route = createFileRoute("/services")({
       { property: "og:description", content: "Books, thesis, journals, business and bulk printing — explore everything we offer." },
     ],
   }),
+  pendingComponent: RouteSkeleton,
   component: ServicesPage,
 });
 
