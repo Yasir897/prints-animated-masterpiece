@@ -6,8 +6,8 @@ export function PageLoader() {
   const [fading, setFading] = useState(false);
 
   useEffect(() => {
-    const fadeT = setTimeout(() => setFading(true), 2400);
-    const hideT = setTimeout(() => setShow(false), 3100);
+    const fadeT = setTimeout(() => setFading(true), 4200);
+    const hideT = setTimeout(() => setShow(false), 5200);
     return () => {
       clearTimeout(fadeT);
       clearTimeout(hideT);
