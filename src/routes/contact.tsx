@@ -1,4 +1,5 @@
 import { createFileRoute } from "@tanstack/react-router";
+import { RouteSkeleton } from "@/components/site/RouteSkeleton";
 import { Mail, Phone, MapPin } from "lucide-react";
 import {
   Accordion, AccordionContent, AccordionItem, AccordionTrigger,
@@ -19,6 +20,7 @@ export const Route = createFileRoute("/contact")({
       { property: "og:description", content: "Upload your file, get a quick quote, fast delivery guaranteed." },
     ],
   }),
+  pendingComponent: RouteSkeleton,
   component: ContactPage,
 });
 

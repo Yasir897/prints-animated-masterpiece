@@ -1,4 +1,5 @@
 import { createFileRoute, Link } from "@tanstack/react-router";
+import { RouteSkeleton } from "@/components/site/RouteSkeleton";
 import { Sparkles, Target, Heart, Rocket, Award, Users, ArrowRight } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Header } from "@/components/site/Header";
@@ -17,6 +18,7 @@ export const Route = createFileRoute("/about")({
       { property: "og:description", content: "Premium printing for the next generation of students and businesses." },
     ],
   }),
+  pendingComponent: RouteSkeleton,
   component: AboutPage,
 });
 
