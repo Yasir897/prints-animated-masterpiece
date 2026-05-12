@@ -6,8 +6,8 @@ export function PageLoader() {
   const [fading, setFading] = useState(false);
 
   useEffect(() => {
-    const fadeT = setTimeout(() => setFading(true), 4200);
-    const hideT = setTimeout(() => setShow(false), 5400);
+    const fadeT = setTimeout(() => setFading(true), 2400);
+    const hideT = setTimeout(() => setShow(false), 3100);
     return () => {
       clearTimeout(fadeT);
       clearTimeout(hideT);
@@ -21,7 +21,7 @@ export function PageLoader() {
       className="page-loader"
       style={{
         opacity: fading ? 0 : 1,
-        transition: "opacity 1.1s ease",
+        transition: "opacity 0.7s ease",
         background:
           "radial-gradient(1200px 800px at 50% 40%, color-mix(in oklab, var(--neon) 12%, transparent), transparent 60%), var(--background)",
       }}
