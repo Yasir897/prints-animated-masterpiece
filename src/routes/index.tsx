@@ -145,6 +145,59 @@ function ServicesGrid() {
   );
 }
 
+function WhyChooseUs() {
+  const bgRef = useParallax<HTMLDivElement>(60);
+  const items = [
+    { icon: Users, title: "Built for Students & Businesses", desc: "Tailored printing for assignments, thesis, marketing collateral & enterprise needs." },
+    { icon: Zap, title: "Fast & Reliable Printing", desc: "High-DPI machines and a streamlined workflow keep deadlines stress-free." },
+    { icon: GraduationCap, title: "University & Thesis Printing", desc: "Premium binding and university-grade finishing — exactly to spec." },
+    { icon: Package, title: "Bulk Printing Solutions", desc: "Wholesale-friendly pricing and capacity for schools, institutes & enterprises." },
+    { icon: MapPin, title: "Delivery Across Pakistan", desc: "Doorstep delivery to every major city — Karachi, Lahore, Islamabad and beyond." },
+    { icon: Plane, title: "International Delivery Available", desc: "Global shipping for thesis, books and bulk orders — wherever you are." },
+  ];
+
+  return (
+    <section className="py-24 relative overflow-hidden">
+      <div ref={bgRef} className="parallax absolute inset-0 bg-grid opacity-20 pointer-events-none" />
+      <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 h-96 w-[40rem] rounded-full bg-gradient-brand opacity-10 blur-3xl float-slower pointer-events-none" />
+      <div className="relative mx-auto max-w-7xl px-6">
+        <div className="text-center max-w-2xl mx-auto reveal-up">
+          <span className="inline-flex items-center gap-2 rounded-full glass px-4 py-1.5 text-xs font-medium uppercase tracking-wider text-primary">
+            <Sparkles className="h-3.5 w-3.5" /> Why EasyPrints
+          </span>
+          <h2 className="mt-3 text-4xl sm:text-5xl font-bold">
+            Premium printing, <span className="text-gradient">trusted by all.</span>
+          </h2>
+          <p className="mt-4 text-muted-foreground">
+            Built for students, universities and businesses — every order handled with care and precision.
+          </p>
+        </div>
+
+        <div className="mt-14 grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
+          {items.map(({ icon: Icon, title, desc }, i) => (
+            <div
+              key={title}
+              className="reveal-up neon-border group relative overflow-hidden rounded-2xl glass p-7 hover-lift"
+              data-reveal-delay={i * 90}
+            >
+              <div className="absolute -right-10 -top-10 h-32 w-32 rounded-full bg-gradient-brand opacity-0 group-hover:opacity-40 transition-opacity duration-500 blur-2xl" />
+              <div className="absolute -left-10 -bottom-10 h-32 w-32 rounded-full bg-fuchsia-500/30 opacity-0 group-hover:opacity-30 transition-opacity duration-700 blur-2xl" />
+              <div
+                className="relative grid h-14 w-14 place-items-center rounded-2xl bg-gradient-brand text-brand-foreground shadow-glow group-hover:scale-110 group-hover:rotate-6 transition-all float-slow"
+                style={{ animationDelay: `${i * 0.4}s` }}
+              >
+                <Icon className="h-7 w-7" />
+              </div>
+              <h3 className="relative mt-5 text-lg font-semibold">{title}</h3>
+              <p className="relative mt-2 text-sm text-muted-foreground leading-relaxed">{desc}</p>
+            </div>
+          ))}
+        </div>
+      </div>
+    </section>
+  );
+}
+
 function HowItWorks() {
   const bgRef = useParallax<HTMLDivElement>(50);
   return (
