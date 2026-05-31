@@ -1,5 +1,6 @@
 import { Link } from "@tanstack/react-router";
-import { Printer, Mail, Phone, MapPin, Instagram, Facebook, Twitter, Linkedin } from "lucide-react";
+import { Mail, Phone, MapPin, Instagram, Facebook, Twitter, Linkedin } from "lucide-react";
+import logoImg from "@/assets/logo.png";
 
 export function Footer() {
   return (
@@ -9,8 +10,8 @@ export function Footer() {
         <div className="grid gap-10 md:grid-cols-4">
           <div>
             <div className="flex items-center gap-2.5">
-              <span className="grid h-9 w-9 place-items-center rounded-xl bg-gradient-brand">
-                <Printer className="h-5 w-5" />
+              <span className="grid h-11 w-11 place-items-center rounded-full bg-white overflow-hidden ring-1 ring-white/30 shadow-glow">
+                <img src={logoImg} alt="EasyPrints logo" className="h-10 w-10 object-contain" loading="lazy" decoding="async" />
               </span>
               <span className="text-lg font-bold">EasyPrints</span>
             </div>

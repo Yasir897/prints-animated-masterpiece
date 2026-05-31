@@ -1,6 +1,7 @@
 import { Link } from "@tanstack/react-router";
 import { useEffect, useState } from "react";
-import { Menu, X, Printer } from "lucide-react";
+import { Menu, X } from "lucide-react";
+import logoImg from "@/assets/logo.png";
 import { Button } from "@/components/ui/button";
 import { cn } from "@/lib/utils";
 import { OrderModal } from "./OrderModal";
@@ -40,8 +41,11 @@ export function Header() {
           style={scrolled ? { borderBottom: "1px solid color-mix(in oklab, var(--neon) 35%, transparent)", boxShadow: "0 10px 40px -10px var(--brand-glow), 0 0 24px -8px var(--neon)" } : undefined}
         >
           <Link to="/" className="group flex items-center gap-2.5">
-            <span className="grid h-9 w-9 place-items-center rounded-xl bg-gradient-brand text-brand-foreground shadow-glow transition-transform group-hover:rotate-6">
-              <Printer className="h-5 w-5" />
+            <span
+              className="grid h-11 w-11 place-items-center rounded-full bg-white shadow-glow transition-transform group-hover:rotate-6 overflow-hidden ring-1 ring-white/40"
+              style={{ boxShadow: "0 0 24px -4px var(--neon), 0 0 12px -2px var(--brand-glow)" }}
+            >
+              <img src={logoImg} alt="EasyPrints logo" className="h-10 w-10 object-contain" loading="eager" decoding="async" />
             </span>
             <span className="text-lg font-bold tracking-tight text-white">
               Easy<span className="text-gradient">Prints</span>
