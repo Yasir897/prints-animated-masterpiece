@@ -3,9 +3,9 @@ import { createPortal } from "react-dom";
 import { MessageCircle, Mail, Phone, X } from "lucide-react";
 
 export const CONTACT = {
-  whatsapp: "923001234567", // international format, no +
-  phone: "+923001234567",
-  email: "hello@easyprints.pk",
+  whatsapp: "https://wa.me/message/TASMIFL7NI2UG1",
+  phone: "+923296972908",
+  email: "owner@easyprints.co",
 };
 
 interface OrderModalProps {
@@ -40,7 +40,7 @@ export function OrderModal({ open, onClose }: OrderModalProps) {
       icon: MessageCircle,
       title: "Send Message on WhatsApp",
       desc: "Chat with us instantly",
-      href: `https://wa.me/${CONTACT.whatsapp}?text=Hi%20EasyPrints%2C%20I%20want%20to%20place%20an%20order`,
+      href: `${CONTACT.whatsapp}?text=Hi%20EasyPrints%2C%20I%20want%20to%20place%20an%20order`,
       target: "_blank",
       glow: "0 0 30px rgba(37, 211, 102, 0.5)",
       grad: "linear-gradient(135deg, #25D366, #128C7E)",

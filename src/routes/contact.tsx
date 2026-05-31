@@ -92,14 +92,14 @@ function ContactPage() {
                     <Phone className="h-5 w-5 mt-0.5" />
                     <div>
                       <div className="text-white/60 text-xs">Phone</div>
-                      <a href="tel:+923001234567" className="story-link hover:text-white transition-colors">+92 300 1234567</a>
+                      <a href="tel:+923296972908" className="story-link hover:text-white transition-colors">+92 329 6972908</a>
                     </div>
                   </li>
                   <li className="flex items-start gap-3">
                     <Mail className="h-5 w-5 mt-0.5" />
                     <div>
                       <div className="text-white/60 text-xs">Email</div>
-                      <a href="mailto:hello@easyprints.pk" className="story-link hover:text-white transition-colors">hello@easyprints.pk</a>
+                      <a href="mailto:owner@easyprints.co" className="story-link hover:text-white transition-colors">owner@easyprints.co</a>
                     </div>
                   </li>
                   <li className="flex items-start gap-3"><MapPin className="h-5 w-5 mt-0.5" /><div><div className="text-white/60 text-xs">Address</div>Lahore, Pakistan</div></li>

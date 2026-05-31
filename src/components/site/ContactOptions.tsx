@@ -7,7 +7,7 @@ export function ContactOptions() {
       icon: MessageCircle,
       title: "Send Message on WhatsApp",
       desc: "Chat with us instantly",
-      href: `https://wa.me/${CONTACT.whatsapp}?text=Hi%20EasyPrints%2C%20I%20want%20to%20place%20an%20order`,
+      href: `${CONTACT.whatsapp}?text=Hi%20EasyPrints%2C%20I%20want%20to%20place%20an%20order`,
       target: "_blank" as const,
       glow: "0 0 40px rgba(37, 211, 102, 0.55)",
       grad: "linear-gradient(135deg, #25D366, #128C7E)",
