@@ -1,5 +1,5 @@
 import { useEffect, useState } from "react";
-import { Printer } from "lucide-react";
+import logoImg from "@/assets/logo.png";
 
 export function PageLoader() {
   const [show, setShow] = useState(true);
@@ -65,13 +65,9 @@ export function PageLoader() {
             }}
           />
           <div
-            className="relative grid h-20 w-20 place-items-center rounded-2xl text-brand-foreground shadow-glow animate-float"
-            style={{
-              background:
-                "linear-gradient(135deg, var(--neon), var(--neon-2))",
-            }}
+            className="relative grid h-24 w-24 place-items-center rounded-full bg-white shadow-glow animate-float overflow-hidden ring-2 ring-white/40"
           >
-            <Printer className="h-10 w-10" />
+            <img src={logoImg} alt="EasyPrints logo" className="h-20 w-20 object-contain" />
           </div>
         </div>
 
