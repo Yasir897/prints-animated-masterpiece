@@ -1,7 +1,7 @@
 export function WhatsAppButton() {
   return (
     <a
-      href="https://wa.me/923001234567?text=Hi%20EasyPrints%2C%20I%20want%20to%20place%20an%20order"
+      href="https://wa.me/message/TASMIFL7NI2UG1?text=Hi%20EasyPrints%2C%20I%20want%20to%20place%20an%20order"
       target="_blank"
       rel="noopener noreferrer"
       aria-label="Chat With Us on WhatsApp"
