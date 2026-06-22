@@ -82,11 +82,8 @@ export const Route = createRootRouteWithContext<{ queryClient: QueryClient }>()(
       { property: "og:description", content: "Fast, affordable, high-quality printing: books, PDFs, thesis, journals, assignments, flyers and bulk business printing." },
       { property: "og:type", content: "website" },
       { name: "twitter:card", content: "summary" },
-      { name: "twitter:site", content: "@Lovable" },
       { name: "twitter:title", content: "EasyPrints — Premium Printing for Students & Businesses" },
       { name: "twitter:description", content: "Fast, affordable, high-quality printing: books, PDFs, thesis, journals, assignments, flyers and bulk business printing." },
-      { property: "og:image", content: "https://pub-bb2e103a32db4e198524a2e9ed8f35b4.r2.dev/fd67a9f8-e9fa-4870-9f94-f55847a656af/id-preview-acfb900d--4d1a1c42-e72f-4587-90ed-bf56cfbcaf12.lovable.app-1778333205358.png" },
-      { name: "twitter:image", content: "https://pub-bb2e103a32db4e198524a2e9ed8f35b4.r2.dev/fd67a9f8-e9fa-4870-9f94-f55847a656af/id-preview-acfb900d--4d1a1c42-e72f-4587-90ed-bf56cfbcaf12.lovable.app-1778333205358.png" },
     ],
     links: [
       {
